@@ -25,6 +25,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class orderSysController implements Initializable{
 	@FXML private HBox menuBox; //왼쪽편 pane
@@ -230,25 +231,26 @@ public class orderSysController implements Initializable{
 			
 		});
 		
+		
 	}
 	
 	public void log_out_handler(Event e)
 	{
-		Stage stage=(Stage)id.getScene().getWindow();
 		
-				// TODO Auto-generated method stub
-				Alert alert=new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("로그아웃");
-				alert.setHeaderText("정말 로그아웃 하시겠어요?");
-				alert.setContentText("Ok 버튼 클릭시 로그아웃 됩니다.");
-				Optional<ButtonType> result= alert.showAndWait();
-				if(result.get()==ButtonType.OK)
-				{
-					LoginController.log_in_list.remove(0);
-					stage.close();
-					
-					System.out.println(LoginController.log_in_list.size());
-				}			
+		Stage stage=(Stage)id.getScene().getWindow();
+		Alert alert=new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("로그아웃");
+		alert.setHeaderText("정말 로그아웃 하시겠어요?");
+		alert.setContentText("Ok 버튼 클릭시 로그아웃 됩니다.");
+		Optional<ButtonType> result= alert.showAndWait();
+		if(result.get()==ButtonType.OK)
+		{
+			LoginController.log_in_list.remove(0);
+			stage.close();
+			
+			System.out.println(LoginController.log_in_list.size());
+		}		
+				
 	}
 	
 	
@@ -265,6 +267,23 @@ public class orderSysController implements Initializable{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+	public void handlePayBtnAction(Event e)
+	{
+		FXMLLoader loader=new FXMLLoader(getClass().getResource("pay.fxml"));
+		Parent p;
+		try {
+			p = loader.load();
+			Stage stage=new Stage();
+			stage.setTitle("결제");
+			stage.setScene(new Scene(p));
+			stage.show();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 	}
 	
 	
