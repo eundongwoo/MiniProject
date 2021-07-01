@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<HBox prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderSysController">
+<HBox prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.orderSysController">
    <children>
       <HBox fx:id="menuBox" prefHeight="600.0" prefWidth="723.0">
          <children>
@@ -294,30 +286,14 @@
                <top>
                   <AnchorPane fx:id="topPane" prefHeight="124.0" prefWidth="413.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="nameLabel" alignment="CENTER" layoutX="37.0" layoutY="29.0" prefHeight="25.0" prefWidth="50.0" text="아이디">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="gradeLabel" alignment="CENTER" layoutX="37.0" layoutY="74.0" prefHeight="25.0" prefWidth="50.0" text="금액">
+                        <Label fx:id="nameLabel" alignment="CENTER" layoutX="37.0" layoutY="29.0" prefHeight="25.0" prefWidth="50.0" text="이름">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="id" layoutX="111.0" layoutY="28.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="94.0" text="홍길동" onAction="#log_out_handler">
+                        <Label fx:id="gradeLabel" alignment="CENTER" layoutX="37.0" layoutY="62.0" prefHeight="25.0" prefWidth="50.0" text=" 등급 ">
                            <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="money" layoutX="111.0" layoutY="75.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="94.0" text="won" />
-                        <Label fx:id="nameLabel1" alignment="CENTER" layoutX="229.0" layoutY="30.0" prefHeight="25.0" prefWidth="135.0" text="님 환영합니다!">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="nameLabel11" alignment="CENTER" layoutX="236.0" layoutY="74.0" prefHeight="25.0" prefWidth="135.0" text="원">
-                           <font>
-                              <Font size="16.0" />
+                              <Font size="15.0" />
                            </font>
                         </Label>
                      </children>
@@ -326,8 +302,13 @@
                <center>
                   <VBox prefHeight="376.0" prefWidth="193.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ListView fx:id="listView" prefHeight="338.0" prefWidth="413.0" />
-                        <Button fx:id="delete" mnemonicParsing="false" prefHeight="43.0" prefWidth="413.0" text="삭제" />
+                        <TableView fx:id="tableView" prefHeight="340.0" prefWidth="413.0">
+                          <columns>
+                            <TableColumn fx:id="food" prefWidth="274.0" text="음식" />
+                            <TableColumn fx:id="foodPrice" prefWidth="138.0" text="가격" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="delete" mnemonicParsing="false" prefHeight="43.0" prefWidth="413.0" text="전체 삭제" />
                      </children>
                   </VBox>
                </center>
