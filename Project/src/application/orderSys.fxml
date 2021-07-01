@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderSysController">
+   <children>
+      <HBox fx:id="menuBox" prefHeight="600.0" prefWidth="723.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="733.0">
+               <center>
+                  <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                           	<Button fx:id="btn1" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="27.0" prefHeight="100.0" prefWidth="100.0">
+                           		<graphic>
+                           		 	<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                    		<Image url="@images/김밥.png" />
+                              </image>
+                              		</ImageView>
+                           		</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                           	</Button>
+                              <ImageView fitHeight="26.0" fitWidth="61.0" layoutX="63.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/gimbap.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                             <Button fx:id="btn2" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="22.0" prefHeight="100.0" prefWidth="100.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    		<Image url="@images/김치.png" />
+                                </image>
+                              		</ImageView>
+                                 </graphic>
+                             </Button>
+                              <ImageView fitHeight="24.0" fitWidth="64.0" layoutX="64.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/kimchi.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                           <children>
+                             <Button fx:id="btn3" alignment="CENTER" layoutX="41.0" layoutY="21.0" prefHeight="100.0" prefWidth="100.0">
+                             	<graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                <image>
+                                   		<Image url="@images/냉면.png" />
+                                </image>
+                              		</ImageView>
+                             	</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </Button>
+                              <ImageView fitHeight="29.0" fitWidth="93.0" layoutX="45.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/naengmyon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                             <Button fx:id="btn4" alignment="CENTER" layoutX="42.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0">
+                             	<graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                <image>
+                                    		<Image url="@images/떡.png" />
+                                </image>
+                              		</ImageView>
+                             	</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </Button>
+                              <ImageView fitHeight="22.0" fitWidth="56.0" layoutX="64.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/tteok.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                             <Button fx:id="btn5" alignment="CENTER" layoutX="41.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0">
+                             	<graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <image>
+                                    		<Image url="@images/떡볶이.png" />
+                                </image>
+                              		</ImageView>
+                             	</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </Button>
+                              <ImageView fitHeight="30.0" fitWidth="100.0" layoutX="41.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/tteokbokki.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                             <Button fx:id="btn6" alignment="CENTER" layoutX="41.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0">
+                             	<graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                <image>
+                                    		<Image url="@images/보쌈.png" />
+                                </image>
+                              		</ImageView>
+                             	</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </Button>
+                              <ImageView fitHeight="25.0" fitWidth="73.0" layoutX="61.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/bossam.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="85.0" layoutX="58.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/bulgogi.png" />
+                                 </image>
+                              </ImageView>
+                             <Button fx:id="btn7" alignment="CENTER" layoutX="42.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0">
+                             	<graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                                <image>
+                                    		<Image url="@images/불고기.png" />
+                                </image>
+                              		</ImageView>
+                             	</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                             <Button fx:id="btn8" alignment="CENTER" layoutX="41.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0">
+                             	<graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <image>
+                                    		<Image url="@images/비빔밥.png" />
+                                </image>
+                              		</ImageView>
+                             	</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </Button>
+                              <ImageView fitHeight="26.0" fitWidth="77.0" layoutX="58.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/bibimbap.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                             <Button fx:id="btn9" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0">
+                             	<graphic>
+                             		<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                <image>
+                                    		<Image url="@images/잡채.png" />
+                                </image>
+                              		</ImageView>
+                             	</graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </Button>
+                              <ImageView fitHeight="24.0" fitWidth="78.0" layoutX="60.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/japche.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" />
+                     </padding>
+                     <BorderPane.margin>
+                        <Insets left="10.0" right="10.0" top="15.0" />
+                     </BorderPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <Blend />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </GridPane>
+               </center>
+               <top>
+                  <ImageView fx:id="sign" fitHeight="123.0" fitWidth="586.0" pickOnBounds="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@images/healthyFood2.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" />
+                     </BorderPane.margin>
+                  </ImageView>
+               </top>
+            </BorderPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="600.0" prefWidth="550.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="413.0">
+               <bottom>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="385.0">
+                           <children>
+                              <TextArea fx:id="total" prefHeight="100.0" prefWidth="274.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="262.0">
+                           <children>
+                              <Button fx:id="payBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="101.0" prefWidth="170.0">
+                                 <graphic>
+                                    <ImageView fitHeight="73.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/cash.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </bottom>
+               <top>
+                  <AnchorPane fx:id="topPane" prefHeight="124.0" prefWidth="413.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="nameLabel" alignment="CENTER" layoutX="37.0" layoutY="29.0" prefHeight="25.0" prefWidth="50.0" text="아이디">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="gradeLabel" alignment="CENTER" layoutX="37.0" layoutY="74.0" prefHeight="25.0" prefWidth="50.0" text="금액">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="id" layoutX="111.0" layoutY="28.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="94.0" text="홍길동" onAction="#log_out_handler">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="money" layoutX="111.0" layoutY="75.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="94.0" text="won" />
+                        <Label fx:id="nameLabel1" alignment="CENTER" layoutX="229.0" layoutY="30.0" prefHeight="25.0" prefWidth="135.0" text="님 환영합니다!">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nameLabel11" alignment="CENTER" layoutX="236.0" layoutY="74.0" prefHeight="25.0" prefWidth="135.0" text="원">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <VBox prefHeight="376.0" prefWidth="193.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ListView fx:id="listView" prefHeight="338.0" prefWidth="413.0" />
+                        <Button fx:id="delete" mnemonicParsing="false" prefHeight="43.0" prefWidth="413.0" text="삭제" />
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </children>
+      </HBox>
+   </children>
+</HBox>
