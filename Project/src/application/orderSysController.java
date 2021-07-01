@@ -254,9 +254,11 @@ public class orderSysController implements Initializable{
 	
 	public void handleChargeBtnAtcion(ActionEvent e) {
 		FXMLLoader loader=new FXMLLoader(getClass().getResource("ChargeMoney.fxml"));
+		Stage charge_stage=(Stage)money.getScene().getWindow();
 		try {
+			charge_stage.close();
 			Parent root = loader.load();
-			Stage stage=new Stage();
+			Stage stage=new Stage(); 
 			stage.setTitle("ÀÜ¾×ÃæÀü");
 			stage.setScene(new Scene(root));
 			stage.show();

@@ -270,7 +270,10 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="385.0">
                            <children>
-                              <TextArea fx:id="total" prefHeight="100.0" prefWidth="274.0" />
+                              <TextArea fx:id="total" prefHeight="100.0" prefWidth="274.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></TextArea>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="262.0">
@@ -305,12 +308,12 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <Button fx:id="id" layoutX="123.0" layoutY="26.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="90.0" text="홍길동" onAction="#log_out_handler">
+                        <Button fx:id="id" layoutX="123.0" layoutY="26.0" mnemonicParsing="false" onAction="#log_out_handler" prefHeight="23.0" prefWidth="90.0" text="홍길동">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="money" layoutX="123.0" layoutY="75.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="91.0" text="won" onAction="#handleChargeBtnAtcion">
+                        <Button fx:id="money" layoutX="123.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleChargeBtnAtcion" prefHeight="23.0" prefWidth="91.0" text="won">
                            <font>
                               <Font size="16.0" />
                            </font>
