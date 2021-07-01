@@ -1,20 +1,30 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class orderSysController implements Initializable{
 	@FXML private HBox menuBox; //왼쪽편 pane
@@ -26,6 +36,7 @@ public class orderSysController implements Initializable{
 	@FXML private TableView<TableRowData> tableView;
 	@FXML private TableColumn<TableRowData, String> food;
 	@FXML private TableColumn<TableRowData, Integer> foodPrice;
+	@FXML private Button id,money;
 	
 	
 	//int[] flag = new int[9];
@@ -44,7 +55,11 @@ public class orderSysController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-
+		Person p = LoginController.log_in_list.get(0);
+		id.setText(p.getId());
+		money.setText(p.getMoney());
+		
+		
 		food.setCellValueFactory(cellData->cellData.getValue().nameProperty());
 		foodPrice.setCellValueFactory(cellData->cellData.getValue().priceProperty().asObject());
 		
@@ -217,5 +232,41 @@ public class orderSysController implements Initializable{
 		
 	}
 	
+	public void log_out_handler(Event e)
+	{
+		Stage stage=(Stage)id.getScene().getWindow();
+		
+				// TODO Auto-generated method stub
+				Alert alert=new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("로그아웃");
+				alert.setHeaderText("정말 로그아웃 하시겠어요?");
+				alert.setContentText("Ok 버튼 클릭시 로그아웃 됩니다.");
+				Optional<ButtonType> result= alert.showAndWait();
+				if(result.get()==ButtonType.OK)
+				{
+					LoginController.log_in_list.remove(0);
+					stage.close();
+					
+					System.out.println(LoginController.log_in_list.size());
+				}			
+	}
+	
+	
+	public void handleChargeBtnAtcion(ActionEvent e) {
+		FXMLLoader loader=new FXMLLoader(getClass().getResource("ChargeMoney.fxml"));
+		try {
+			Parent root = loader.load();
+			Stage stage=new Stage();
+			stage.setTitle("잔액충전");
+			stage.setScene(new Scene(root));
+			stage.show();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	
 
 }
+
+	
