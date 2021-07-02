@@ -32,7 +32,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </opaqueInsets>
          <children>
-            <Label alignment="CENTER" text="아이디">
+            <Label alignment="CENTER" text="아이디"> 
                <font>
                   <Font size="24.0" />
                </font>
@@ -47,9 +47,9 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="id" prefHeight="40.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-            <PasswordField fx:id="pwd" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="name" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="id" prefHeight="40.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" promptText="아이디" />
+            <PasswordField fx:id="pwd" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" promptText="비밀번호" />
+            <TextField fx:id="name" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" promptText="이름" />
          </children>
       </GridPane>
       <Button fx:id="register_button" layoutX="442.0" layoutY="494.0" maxWidth="96.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="96.0" text="회원가입" onAction="#register_action" />
