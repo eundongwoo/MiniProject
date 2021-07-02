@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -32,7 +33,6 @@ public class orderSysController implements Initializable{
 	@FXML private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, payBtn, delete;
 	//@FXML private ImageView sign; //간판
 	//@FXML private ListView<String> listView;
-	@FXML private Label nameLabel, gradeLabel;
 	@FXML private TextArea total;
 	@FXML private TableView<TableRowData> tableView;
 	@FXML private TableColumn<TableRowData, String> food;
@@ -41,24 +41,36 @@ public class orderSysController implements Initializable{
 	
 	
 	//int[] flag = new int[9];
+	public static LinkedList<TableRowData> payData = new LinkedList<TableRowData>();
 	static int totalPrice =0;
-	Menu kimbap = new Menu("김밥", 2500);
-	Menu kimchi = new Menu("김치", 1500);
-	Menu naengmyeon = new Menu("냉면", 5000);
-	Menu tteok = new Menu("떡", 3500);
-	Menu tteokbokki = new Menu("떡볶이", 3000);
-	Menu bossam = new Menu("보쌈", 20000);
-	Menu bulgogi = new Menu("불고기", 8000);
-	Menu bibimbap = new Menu("비빔밥", 6500);
-	Menu japchae = new Menu("잡채", 7000);
+	Menu[] menu = new Menu[9];
+	public String[] foodName ={"김밥", "김치", "냉면", "떡", "떡볶이", "보쌈", "불고기", "비빔밥", "잡채"};
+	public int[] Price = {2500, 1500, 5000, 3500, 3000, 20000, 8000, 6500, 7000};
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		//사람의 이름과 금액을 id,money 버튼에 출력
 		Person p = LoginController.log_in_list.get(0);
 		id.setText(p.getId());
 		money.setText(p.getMoney());
+		
+		//음식버튼 초기화 및 클릭했을 경우 음식이름과 가격 tableView에 추가 payData에 음식이름과 가격을 삽입하여 결제창에서 출력용으로 사용
+		Button[] btn = {btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9};
+		for(int i=0; i<9; i++) {
+			Menu menu = new Menu(foodName[i], Price[i]);
+			btn[i].setOnAction(e-> {
+				tableView.getItems().add(new TableRowData(new SimpleStringProperty(menu.getFoodName()), 
+						new SimpleIntegerProperty(menu.getPrice())));
+				payData.add(new TableRowData(new SimpleStringProperty(menu.getFoodName()), 
+						new SimpleIntegerProperty(menu.getPrice())));
+				totalPrice += menu.getPrice();
+				String sum = Integer.toString(totalPrice);
+				total.setText(sum);
+				tableView.scrollTo(payData.size());
+			});
+		}
 		
 		
 		food.setCellValueFactory(cellData->cellData.getValue().nameProperty());
@@ -70,15 +82,24 @@ public class orderSysController implements Initializable{
 			@Override
 			public void handle(MouseEvent event) {
 				
-				int slctPoint = tableView.getSelectionModel().getSelectedIndex();
-				TableRowData slctData= tableView.getSelectionModel().getSelectedItem();
-				int dltPrice = slctData.priceProperty().getValue();
-				tableView.getItems().remove(slctPoint);
-				totalPrice -= dltPrice;
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
+				int slctPoint = tableView.getSelectionModel().getSelectedIndex(); //클릭한 인덱스
+				TableRowData slctData= tableView.getSelectionModel().getSelectedItem(); //클릭한 테이블
+				if (slctData != null) {
+					int dltPrice = slctData.priceProperty().getValue(); //클릭한 테이블의 가격데이터 
+					tableView.getItems().remove(slctPoint); //테이블에서 클릭한 인덱스를 삭제
+					totalPrice -= dltPrice;	//삭제한 인덱스의 가격만큼 결제금액 차감
+					String sum = Integer.toString(totalPrice); //결제금액 String캐스팅	
+					payData.remove(slctPoint);	//결제창 메뉴 삭제
+					if (totalPrice == 0) {
+						total.clear();	//총 금액 0을 지우기 위해서 TextArea 비우기
+					}
+					else {
+						total.setText(sum);	//결제금액 출력	
+					}				
+				}
+				tableView.getSelectionModel().clearSelection();
 							
-			}
+			}	
 			
 		});
 		
@@ -86,151 +107,14 @@ public class orderSysController implements Initializable{
 		delete.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-
+				
+				payData.clear();
 				tableView.getItems().remove(0, tableView.getItems().size());
 				totalPrice = 0;
-				total.setText("");
-				
-			}
+				total.setText("");			
+			}	
 			
 		});
-		
-		btn1.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("김밥"), 
-						new SimpleIntegerProperty(2500)));
-				kimbap.count += 1;
-				totalPrice += kimbap.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-			}
-			
-		});
-		
-		
-		btn2.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("김치"), 
-						new SimpleIntegerProperty(1500)));
-				kimchi.count += 1;
-				totalPrice += kimchi.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-								
-			}
-			
-		});
-				
-		btn3.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("냉면"), 
-						new SimpleIntegerProperty(5000)));
-				naengmyeon.count += 1;
-				totalPrice += naengmyeon.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-			}
-			
-		});
-		
-		btn4.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("떡"), 
-						new SimpleIntegerProperty(3500)));
-				tteok.count += 1;
-				totalPrice += tteok.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-					
-			}
-			
-		});
-		
-		btn5.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("떡볶이"), 
-						new SimpleIntegerProperty(3000)));
-				tteokbokki.count += 1;
-				totalPrice += tteokbokki.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-				
-			}
-			
-		});
-		
-		btn6.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("보쌈"), 
-						new SimpleIntegerProperty(20000)));
-				bossam.count += 1;
-				totalPrice += bossam.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-				
-			}
-			
-		});
-		
-		btn7.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				//listView.getItems().add(bulgogi.getFoodName().toString() +"\t\t\t\t\t\t" + bulgogi.getPrice());
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("불고기"), 
-						new SimpleIntegerProperty(8000)));
-				bulgogi.count += 1;
-				totalPrice += bulgogi.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-				
-			}
-			
-		});
-		
-		btn8.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("비빔밥"), 
-						new SimpleIntegerProperty(6500)));
-				bibimbap.count += 1;
-				totalPrice += bibimbap.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);
-				
-			}		
-		});
-		
-		btn9.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent event) {
-				tableView.getItems().add(new TableRowData(new SimpleStringProperty("잡채"), 
-						new SimpleIntegerProperty(7000)));
-				japchae.count += 1;
-				totalPrice += japchae.getPrice();
-				String sum = Integer.toString(totalPrice);
-				total.setText(sum);	
-				
-			}
-			
-		});
-		
 		
 	}
 	
