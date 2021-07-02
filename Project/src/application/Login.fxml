@@ -25,8 +25,8 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="id" layoutX="391.0" layoutY="117.0" prefHeight="30.0" prefWidth="300.0" />
-            <PasswordField fx:id="pwd" layoutX="398.0" layoutY="238.0" prefHeight="30.0" prefWidth="300.0" />
+            <TextField fx:id="id" layoutX="391.0" layoutY="117.0" prefHeight="30.0" prefWidth="300.0" promptText="아이디" />
+            <PasswordField fx:id="pwd" layoutX="398.0" layoutY="238.0" prefHeight="30.0" prefWidth="300.0" promptText="비밀번호" />
          </children>
       </AnchorPane>
    </center>
