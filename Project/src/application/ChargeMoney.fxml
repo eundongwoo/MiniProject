@@ -6,33 +6,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
-	fx:controller="application.ChargeMoneyController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ChargeMoneyController">
    <children>
-      <Label alignment="CENTER" layoutX="330.0" layoutY="36.0" prefHeight="73.0" prefWidth="140.0" text="잔액충전">
+      <Label alignment="CENTER" layoutX="430.0" layoutY="29.0" prefHeight="73.0" prefWidth="140.0" text="잔액충전">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Label layoutX="161.0" layoutY="177.0" prefHeight="73.0" prefWidth="169.0" text="현재 잔액:">
+      <Label layoutX="231.0" layoutY="177.0" prefHeight="73.0" prefWidth="169.0" text="현재 잔액:">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Label layoutX="161.0" layoutY="310.0" prefHeight="73.0" prefWidth="169.0" text="충전금액:">
+      <Label layoutX="231.0" layoutY="310.0" prefHeight="73.0" prefWidth="169.0" text="충전금액:">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Label fx:id="money" layoutX="470.0" layoutY="177.0" prefHeight="73.0" prefWidth="207.0" text="(현재 잔액)">
+      <Label fx:id="money" layoutX="574.0" layoutY="177.0" prefHeight="73.0" prefWidth="207.0" text="(현재 잔액)">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <TextField fx:id="chargeMoney" layoutX="470.0" layoutY="329.0" prefHeight="35.0" prefWidth="207.0" promptText="충전금액을 입력하세요" />
-      <Button fx:id="chargeButton" layoutX="330.0" layoutY="451.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="충전하기"
-      	onAction="#handlerChargeButtonAction">
+      <TextField fx:id="chargeMoney" layoutX="570.0" layoutY="329.0" prefHeight="35.0" prefWidth="207.0" promptText="충전금액을 입력하세요" />
+      <Button fx:id="chargeButton" layoutX="430.0" layoutY="469.0" mnemonicParsing="false" onAction="#handlerChargeButtonAction" prefHeight="35.0" prefWidth="140.0" text="충전하기">
          <font>
             <Font size="18.0" />
          </font>
