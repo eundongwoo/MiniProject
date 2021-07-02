@@ -32,6 +32,7 @@ public class ChargeMoneyController implements Initializable{
 	}
 	
 	public void handlerChargeButtonAction(ActionEvent e) {
+		orderSysController.payData.clear();
 		int leftMoney = Integer.parseInt(LoginController.log_in_list.get(0).getMoney());
 		int cgMoney = Integer.parseInt(chargeMoney.getText());
 		int tot = leftMoney + cgMoney;
@@ -39,6 +40,7 @@ public class ChargeMoneyController implements Initializable{
 		LoginController.log_in_list.get(0).setMoney(totMoney);
 		money.setText(LoginController.log_in_list.get(0).getMoney());
 		System.out.println(totMoney);
+		//메인페이지 다시 뜰때 로그아웃 가능 하게 구현
 		loader=new FXMLLoader(getClass().getResource("orderSys.fxml"));
 		try {
 			Stage charge_stage=(Stage)chargeButton.getScene().getWindow();

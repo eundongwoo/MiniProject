@@ -129,18 +129,30 @@ public class orderSysController implements Initializable{
 		Optional<ButtonType> result= alert.showAndWait();
 		if(result.get()==ButtonType.OK)
 		{
+			orderSysController.payData.clear();
 			LoginController.log_in_list.remove(0);
 			stage.close();
+			FXMLLoader loader=new FXMLLoader(getClass().getResource("Login.fxml"));
+			try {
+				Parent p=loader.load();
+				Stage main_stage=new Stage();
+				main_stage.setScene(new Scene(p));
+				main_stage.show();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
-			System.out.println(LoginController.log_in_list.size());
-		}		
+			
+		}	
+		
 				
 	}
 	
 	
 	public void handleChargeBtnAtcion(ActionEvent e) {
 		FXMLLoader loader=new FXMLLoader(getClass().getResource("ChargeMoney.fxml"));
-		Stage charge_stage=(Stage)money.getScene().getWindow();
+	 Stage charge_stage=(Stage)money.getScene().getWindow();
 		try {
 			charge_stage.close();
 			Parent root = loader.load();
@@ -157,20 +169,21 @@ public class orderSysController implements Initializable{
 	{
 		FXMLLoader loader=new FXMLLoader(getClass().getResource("pay.fxml"));
 		Parent p;
+		Stage main_stage=(Stage)payBtn.getScene().getWindow();
 		try {
 			p = loader.load();
 			Stage stage=new Stage();
 			stage.setTitle("∞·¡¶");
 			stage.setScene(new Scene(p));
 			stage.show();
+			main_stage.close();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
 	}
-	
-	
+
 
 }
 
