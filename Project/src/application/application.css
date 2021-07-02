@@ -1,2 +1,13 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-
+#login_back
+{
+	-fx-background-image: url('Login.png');
+	-fx-background-repeat: none;
+	-fx-background-size: 1002;
+	-fx-opacity: 0.9;
+}
+TextField
+{
+	-fx-border-radius: 100px;
+	
+}
