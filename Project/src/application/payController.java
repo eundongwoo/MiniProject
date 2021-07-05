@@ -114,6 +114,8 @@ public class payController implements Initializable{
 				Optional<ButtonType> result= alert.showAndWait();
 				if(result.get()==ButtonType.OK)
 				{
+					Person person=LoginController.log_in_list.get(0);
+					orderSysController.save_money.put(person.getId(),person.getMoney());
 					LoginController.log_in_list.remove(0);
 					main_stage.close();
 					FXMLLoader	login_page=new FXMLLoader(getClass().getResource("Login.fxml"));
