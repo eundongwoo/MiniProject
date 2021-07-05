@@ -115,17 +115,13 @@ public class payController implements Initializable{
 				Optional<ButtonType> result= alert.showAndWait();// 알림창을 띄운 뒤, 사용자의 선택을 기다림
 				if(result.get()==ButtonType.OK)// OK 버튼을 눌렀을 때
 				{
-<<<<<<< HEAD
+
 					Person person=LoginController.log_in_list.get(0);
 					orderSysController.save_money.put(person.getId(),person.getMoney());
-					LoginController.log_in_list.remove(0);
-					main_stage.close();
-					FXMLLoader	login_page=new FXMLLoader(getClass().getResource("Login.fxml"));
-=======
 					LoginController.log_in_list.remove(0);// log_in_list에 저장된 Person 객체 삭제
 					main_stage.close();// "orderSys.fxml"창 닫음
 					FXMLLoader	login_page=new FXMLLoader(getClass().getResource("Login.fxml"));// "Login.fxml" 창 불러와서 loader 객체 생성
->>>>>>> branch 'master' of https://github.com/eundongwoo/MiniProject.git
+
 				try {
 					Parent p1=login_page.load();
 					Stage login_stage=new Stage();
