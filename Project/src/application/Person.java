@@ -45,14 +45,6 @@ public class Person {
 	}
 
 	
-	//지울꺼임 .. 찍어보는 함수
-	public void print()
-	{
-		System.out.println(this.id);
-		System.out.println(this.pwd);
-		System.out.println(this.name);
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if(obj instanceof Person)
@@ -71,15 +63,5 @@ public class Person {
 		return id.hashCode();
 	}
 	
-	public void member_info()
-	{
-		System.out.println("멤버:====================");
-		for(Person p: RegisterController.member)
-		{
-			System.out.println("아이디:"+p.id);
-			System.out.println("비밀번호:"+p.pwd);
-			System.out.println("이름:"+p.name);
-		}
-	}
 	
 }

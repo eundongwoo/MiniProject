@@ -46,7 +46,6 @@ public class RegisterController implements Initializable {
 				alert.setTitle("회원가입 성공");
 				alert.setHeaderText("회원이 되신것을 축하합니다.");
 				alert.show();
-				person.member_info(); // 추가된 Person 객체 정보 Console 창에 출력
 				break;
 			}
 			else
