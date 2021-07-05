@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.payController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@Pay.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.payController">
    <top>
       <AnchorPane prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -56,7 +56,8 @@
                                        </HBox.margin></Button>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="48.0" prefWidth="184.0">
+                              <HBox prefHeight="47.0" prefWidth="58.0" />
+                              <HBox prefHeight="48.0" prefWidth="184.0" spacing="10.0">
                                  <children>
                                     <Button fx:id="payok" mnemonicParsing="false" prefHeight="51.0" prefWidth="143.0" text="확인">
                                        <HBox.margin>

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+#button_background
+{
+	-fx-background-color: white;
+}
+Lable
+{
+	-fx-font-family: 'Abril Fatface', cursive;
+}
+
+#button_background Button
+{
+	-fx-border-radius: 20;
+	-fx-background-radius: 20;
+	-fx-background-color: white;
+}
+
+#button_background Button:pressed
+{
+	-fx-effect:innershadow(three-pass-box,rgba(0,0,0,0.7),10,0,5,5); 
+	-fx-border-color: red;
+	-fx-border-width: 3px;
+	
+}
+#image_change
+{
+	-fx-graphic: url('images/cash2.png');
+}
+
+
+#image_change:hover
+{
+	-fx-graphic: url('images/cash3.png');
+	}
+	
+#info_background
+{
+	-fx-background-color: white;
+}
+.delete_all
+{
+
+	-fx-font-size: 1.5em;
+}

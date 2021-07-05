@@ -20,13 +20,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox  prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.orderSysController">
+<HBox prefHeight="600.0" prefWidth="1000.0" stylesheets="@orderSys.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.orderSysController">
    <children>
       <HBox fx:id="menuBox" prefHeight="600.0" prefWidth="723.0">
          <children>
-            <BorderPane prefHeight="600.0" prefWidth="733.0">
+            <BorderPane id="button_background" prefHeight="600.0" prefWidth="733.0">
                <center>
-                  <GridPane  alignment="CENTER" BorderPane.alignment="CENTER">
+                  <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -230,10 +230,10 @@
                      
                      </children>
                      <padding>
-                        <Insets bottom="30.0" />
+                        <Insets bottom="40.0" />
                      </padding>
                      <BorderPane.margin>
-                        <Insets left="10.0" right="10.0" top="15.0" />
+                        <Insets left="10.0" right="10.0" />
                      </BorderPane.margin>
                      <opaqueInsets>
                         <Insets />
@@ -247,7 +247,7 @@
                   </GridPane>
                </center>
                <top>
-                  <ImageView fx:id="sign" fitHeight="123.0" fitWidth="586.0" pickOnBounds="true" BorderPane.alignment="CENTER">
+                  <ImageView fx:id="sign" fitHeight="148.0" fitWidth="586.0" pickOnBounds="true" BorderPane.alignment="CENTER">
                      <image>
                         <Image url="@images/healthyFood2.jpg" />
                      </image>
@@ -278,14 +278,8 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="262.0">
                            <children>
-                              <Button fx:id="payBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handlePayBtnAction" prefHeight="101.0" prefWidth="170.0">
-                                 <graphic>
-                                    <ImageView fitHeight="73.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/cash.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
+                              <Button id="image_change" fx:id="payBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handlePayBtnAction" prefHeight="101.0" prefWidth="170.0">
+                                 
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -296,7 +290,7 @@
                   </HBox>
                </bottom>
                <top>
-                  <AnchorPane fx:id="topPane" prefHeight="124.0" prefWidth="413.0" BorderPane.alignment="CENTER">
+                  <AnchorPane fx:id="topPane" prefHeight="124.0" prefWidth="413.0" BorderPane.alignment="CENTER"  id="info_background">
                      <children>
                         <Label fx:id="nameLabel" alignment="CENTER" layoutX="25.0" layoutY="30.0" prefHeight="25.0" prefWidth="75.0" text="아이디">
                            <font>
@@ -328,11 +322,11 @@
                      <children>
                         <TableView fx:id="tableView" prefHeight="340.0" prefWidth="413.0">
                           <columns>
-                            <TableColumn fx:id="food" prefWidth="274.0" text="음식" />
-                            <TableColumn fx:id="foodPrice" prefWidth="138.0" text="가격" />
+                            <TableColumn styleClass="delete_all"  fx:id="food" prefWidth="274.0" text="음식" />
+                            <TableColumn styleClass="delete_all"  fx:id="foodPrice" prefWidth="138.0" text="가격" />
                           </columns>
                         </TableView>
-                        <Button fx:id="delete" mnemonicParsing="false" prefHeight="43.0" prefWidth="413.0" text="전체 삭제" />
+                        <Button styleClass="delete_all" fx:id="delete" mnemonicParsing="false" prefHeight="43.0" prefWidth="413.0" text="전체 삭제" />
                      </children>
                   </VBox>
                </center>
