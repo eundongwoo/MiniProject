@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+#register_background
+{
+	
+	-fx-background-color: white;
+	-fx-background-repeat: none;
+	-fx-background-size: 1002;
+}
+
+Label
+{
+	-fx-font-family: 'Abril Fatface', cursive;
+	-fx-font-size: 2em;
+}
+
+TextField,PasswordField
+{
+	-fx-padding: 3px 3px 3px 20px;
+	/*-fx-border-radius: 20;
+	-fx-background-radius: 20;
+	*/
+	-fx-background-insets: 0;
+	-fx-border-width: 0px 0px 2px 0;
+    -fx-border-color: transparent transparent black transparent;
+    -fx-background-color: -fx-control-inner-background;
+    -fx-background-insets: 0;
+  
+}
+
+TextField:focused, PasswordField:focused
+{
+	/* 
+	-fx-background-color: #cccccc;
+	*/
+	-fx-border-color: red; 
+	-fx-font-size: 1.5em;
+}
+
+Button
+{
+	-fx-text-fill: white;
+	-fx-background-size: 200;
+    -fx-font-weight: bold;
+    -fx-background-color: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); 
+}
+
+Button:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
