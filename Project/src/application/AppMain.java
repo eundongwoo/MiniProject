@@ -12,7 +12,6 @@ public class AppMain extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
 		loader=new FXMLLoader(getClass().getResource("Login.fxml"));
 		Parent p=loader.load();
 		primaryStage.setScene(new Scene(p));
@@ -22,7 +21,7 @@ public class AppMain extends Application{
 	
 	public static void main(String[] args) {
 		Person person=new Person("admin", "admin");
-		RegisterController.member.add(person);
+		RegisterController.member.add(person);// member HashSet에 admin 계정 추가
 		launch(args);
 		
 	}
