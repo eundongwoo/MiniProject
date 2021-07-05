@@ -63,17 +63,32 @@ public class LoginController implements Initializable {
 						Optional<ButtonType> result= alert.showAndWait();
 						if(result.get()==ButtonType.OK)
 						{
+							orderSysController.payData.clear();
 							LoginController.log_in_list.remove(0);
 							stage.close();
+							FXMLLoader loader=new FXMLLoader(getClass().getResource("Login.fxml"));
+							try {
+								Parent p=loader.load();
+								Stage main_stage=new Stage();
+								main_stage.setScene(new Scene(p));
+								main_stage.show();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 							
-							System.out.println(LoginController.log_in_list.size());
+							
 						}else
 						{
 							event.consume();
 						}
 					}
 				});
+				
 				stage.show();
+				Stage login_stage=(Stage)register_button.getScene().getWindow();
+				login_stage.close();
+				
 				
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -103,5 +118,4 @@ public class LoginController implements Initializable {
 			e1.printStackTrace();
 		}
 	}
-
 }

@@ -1,8 +1,77 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-#parent_container
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/*
+ * 녹색 전체 폼
+ */
+#login_background
 {
-	-fx-background-image: url(pic.jpg); 
+	-fx-font-family: 'Anton', sans-serif;
+	-fx-font-size: 16px;
+	-fx-background-image: url('images/Login.png');
 	-fx-background-repeat: none;
-	-fx-background-size: 100px;
+	-fx-background-size: 1002;
+	-fx-text-fill: gray;
+}
+/*
+ * 라벨 설정
+ */
+Label
+{
+	-fx-font-family: 'Pacifico', cursive;
+	-fx-font-size: 5em;
+	-fx-font-weight:bold;
+	-fx-text-fill: green;
+}
+/*
+ * 라벨 설정
+ */
+#login_btn
+{
+	-fx-font-family: 'Anton', sans-serif;
+	-fx-text-fill: white;
+	-fx-font-size: 20px;
 	
 }
+/*
+ * 링크 설정
+ */
+#link
+{
+	-fx-font-family: 'Anton', sans-serif;
+}
+#link:hover
+{
+	-fx-text-fill: red;
+}
+
+/*
+ * 텍스트 필드, 패스워드 필드
+ */
+TextField,PasswordField
+{
+	-fx-padding: 3px 3px 3px 20px;
+	-fx-border-radius: 20;
+	-fx-background-radius: 20;
+}
+TextField:focused, PasswordField:focused
+{
+	-fx-background-color: #cccccc;
+}
+/*
+ * 버튼
+ */
+Button
+{
+
+	-fx-background-size: 200;
+	-fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); 
+}
+
+Button:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
+
