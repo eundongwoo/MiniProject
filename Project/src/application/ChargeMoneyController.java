@@ -28,7 +28,7 @@ public class ChargeMoneyController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		money.setText(LoginController.log_in_list.get(0).getMoney());// 현재 로그인 한 Person 객체에서 money를 얻어와 Label에 출력
-		
+		chargeMoney.setText("0");
 	}
 	
 	public void handlerChargeButtonAction(ActionEvent e) {// '충전하기 버튼' 이벤트 할당
