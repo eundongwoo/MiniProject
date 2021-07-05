@@ -35,14 +35,12 @@ public class LoginController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		login_button.setOnAction(e->btn_login_action(e));
 		register_button.setOnAction(e->btn_register_action(e));
 	}
 	
 	public void btn_login_action(Event e)
 	{
-		//System.out.println(RegisterController.member.contains(new Person(id.getText(),pwd.getText())));
 		 FXMLLoader loader=new FXMLLoader(getClass().getResource("orderSys.fxml"));
 		 Person person=new Person(id.getText(),pwd.getText());
 		if(RegisterController.member.contains(person))
