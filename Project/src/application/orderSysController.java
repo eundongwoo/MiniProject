@@ -40,7 +40,6 @@ public class orderSysController implements Initializable{
 	@FXML private Button id,money;
 	
 	
-	//int[] flag = new int[9];
 	public static LinkedList<TableRowData> payData = new LinkedList<TableRowData>();
 	static int totalPrice =0;
 	Menu[] menu = new Menu[9];
