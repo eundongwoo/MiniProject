@@ -1,12 +1,14 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 /*
  * 녹색 전체 폼
  */
 #login_background
 {
-	-fx-font-family: 'Anton', sans-serif;
+	-fx-font-family: 'Abril Fatface', cursive;
 	-fx-font-size: 16px;
 	-fx-background-image: url('images/Login.png');
 	-fx-background-repeat: none;
@@ -18,17 +20,17 @@
  */
 Label
 {
-	-fx-font-family: 'Pacifico', cursive;
-	-fx-font-size: 5em;
+	
+	-fx-font-size: 1.4em;
 	-fx-font-weight:bold;
-	-fx-text-fill: green;
+	-fx-text-fill: black;
 }
 /*
  * 라벨 설정
  */
 #login_btn
 {
-	-fx-font-family: 'Anton', sans-serif;
+	
 	-fx-text-fill: white;
 	-fx-font-size: 20px;
 	
@@ -38,7 +40,7 @@ Label
  */
 #link
 {
-	-fx-font-family: 'Anton', sans-serif;
+	-fx-text-fill: black;
 }
 #link:hover
 {
@@ -51,12 +53,21 @@ Label
 TextField,PasswordField
 {
 	-fx-padding: 3px 3px 3px 20px;
-	-fx-border-radius: 20;
+	/*-fx-border-radius: 20;
 	-fx-background-radius: 20;
+	*/
+	-fx-background-insets: 0;
+	-fx-border-width: 0px 0px 2px 0;
+    -fx-border-color: transparent transparent black transparent;
+    -fx-background-color: -fx-control-inner-background;
+    -fx-background-insets: 0;
 }
 TextField:focused, PasswordField:focused
 {
+	/* 
 	-fx-background-color: #cccccc;
+	*/
+	-fx-border-color: #33adff; 
 }
 /*
  * 버튼
@@ -65,9 +76,8 @@ Button
 {
 
 	-fx-background-size: 200;
-	-fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
-    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-background-color: black;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); 
 }
 

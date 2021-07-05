@@ -19,23 +19,24 @@
    <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="593.0" layoutY="153.0" prefHeight="289.0" prefWidth="364.0" style="-fx-border-width: 1; -fx-border-style: solid; -fx-border-radius: 10; -fx-background-color: #d3e3de; -fx-background-radius: 10;">
+            <Pane layoutX="593.0" layoutY="153.0" prefHeight="289.0" prefWidth="364.0" style="-fx-border-width: 1; -fx-border-style: solid; -fx-border-radius: 10; -fx-background-color: white; -fx-background-radius: 10;">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
                <children>
               	  <TextField fx:id="id" layoutX="25.0" layoutY="77.0" prefHeight="30.0" prefWidth="300.0" promptText="아이디" />
                   <PasswordField fx:id="pwd" layoutX="25.0" layoutY="162.0" prefHeight="30.0" prefWidth="300.0" promptText="비밀번호" />
-                  <Button fx:id="login_button" layoutX="82.0" layoutY="218.0" mnemonicParsing="false" onAction="#btn_login_action" prefHeight="50.0" prefWidth="200.0" />
-                  <Hyperlink id="link" fx:id="register_button" layoutX="263.0" layoutY="14.0" onAction="#btn_register_action" text="가입하가&gt;&gt;">
+                  <Button fx:id="login_button" layoutX="70.0" layoutY="227.0" mnemonicParsing="false" onAction="#btn_login_action" prefHeight="41.0" prefWidth="222.0" />
+                  <Hyperlink id="link" fx:id="register_button" layoutX="212.0" layoutY="14.0" onAction="#btn_register_action" text="가입하기&gt;&gt;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Hyperlink>
-                  <Label id="login_btn" layoutX="164.0" layoutY="229.0" text="logIn" />
+                  <Label id="login_btn" layoutX="162.0" layoutY="232.0" text="logIn" />
+                  <Label layoutX="25.0" layoutY="48.0" text="ID" />
+                  <Label layoutX="25.0" layoutY="131.0" text="PassWord" />
                </children>
             </Pane>
-            <Label layoutX="679.0" layoutY="29.0" text="Order" />
          </children>
       </AnchorPane>
    </top>
