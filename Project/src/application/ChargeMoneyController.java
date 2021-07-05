@@ -58,6 +58,8 @@ public class ChargeMoneyController implements Initializable{
 					Optional<ButtonType> result= alert.showAndWait();// 알림창을 띄운 뒤, 사용자의 선택을 기다림
 					if(result.get()==ButtonType.OK)// OK 버튼을 눌렀을 때
 					{
+						Person person=LoginController.log_in_list.get(0);
+						orderSysController.save_money.put(person.getId(),person.getMoney());
 						LoginController.log_in_list.remove(0);// 주문 정보를 지움
 						main_stage.close();// "orderSys.fxml" Stage를 닫음
 					}else

@@ -49,7 +49,7 @@ public class Person {
 	public boolean equals(Object obj) {
 		if(obj instanceof Person)
 		{
-			Person p=(Person)obj;
+			Person p=(Person)obj;  
 			return p.id.equals(id)&& p.pwd.equals(pwd);
 		}else
 		{

@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -36,6 +37,7 @@ public class orderSysController implements Initializable{
 	@FXML private TableColumn<TableRowData, String> food;
 	@FXML private TableColumn<TableRowData, Integer> foodPrice;
 	@FXML private Button id,money;
+	public static HashMap<String, String> save_money=new HashMap<>();
 	
 	
 	public static LinkedList<TableRowData> payData = new LinkedList<TableRowData>();// 결제창에서 목록을 띄워주기 위한 LinkedList 컬랙션 생성
@@ -126,7 +128,11 @@ public class orderSysController implements Initializable{
 		if(result.get()==ButtonType.OK)// OK 버튼을 눌렀을 때
 		{
 			orderSysController.payData.clear();// 주문 정보를 지움
+			Person person=LoginController.log_in_list.get(0);
 			LoginController.log_in_list.remove(0);// log_in_list에 저장된 Person 객체 삭제
+			//RegisterController.member.remove(person);
+			//RegisterController.member.add(person);
+			save_money.put(person.getId(),person.getMoney());
 			stage.close();// 현재 창을 닫음
 			FXMLLoader loader=new FXMLLoader(getClass().getResource("Login.fxml"));// "Login.fxml" 창 불러와서 loader 객체 생성
 			try {

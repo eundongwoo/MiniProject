@@ -46,6 +46,11 @@ public class LoginController implements Initializable {
 		if(RegisterController.member.contains(person))// member HashSet에 로그인 과정에서 생성된 Person 객체와 같은 객체가 있는지 확인
 		{
 			try { // 같은 객체가 있을 때, 아래의 동작 수행
+				if(orderSysController.save_money.containsKey(person.getId()))
+				{
+					String save_money=orderSysController.save_money.get(person.getId()); 
+					person.setMoney(save_money);					
+				}
 				log_in_list.add(person);// log_in_list에 현재 로그인중인 Person 객체 추가
 				Parent p=loader.load();//loader 객체로 컨테이너 생성 후 장면 생성
 				Stage stage=new Stage();
@@ -65,6 +70,8 @@ public class LoginController implements Initializable {
 						if(result.get()==ButtonType.OK)// OK 버튼을 눌렀을 때
 						{
 							orderSysController.payData.clear();// 주문 정보를 지움
+							Person person=LoginController.log_in_list.get(0);
+							orderSysController.save_money.put(person.getId(),person.getMoney());
 							LoginController.log_in_list.remove(0);// log_in_list에 저장된 Person 객체 삭제
 							stage.close();// "orderSys.fxml"창 닫음
 							FXMLLoader loader=new FXMLLoader(getClass().getResource("Login.fxml"));// "Login.fxml" 창 불러와서 loader 객체 생성
