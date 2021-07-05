@@ -23,37 +23,35 @@ public class RegisterController implements Initializable {
 	@FXML private TextField name;
 	@FXML private Button register_button;
 	@FXML private Button check_button;
-	Alert alert=new Alert(AlertType.INFORMATION);
-	public static Set<Person> member=new HashSet<Person>(); //사람을 담는 HashSet
+	Alert alert=new Alert(AlertType.INFORMATION); // 회원가입 안내 알림창 생성
+	public static Set<Person> member=new HashSet<Person>(); //회원 목록을 담는 HashSet 생성
 	
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+	public void initialize(URL location, ResourceBundle resources) { // Initializable 인터페이스의 initiazlize 메소드 재정의
 		
 	}
 	
-	public void register_action(Event e)
+	public void register_action(Event e) // '회원가입 버튼' 이벤트 
 	{
 		
-		Stage stage=(Stage)register_button.getScene().getWindow();
-		for(Person p:member)
+		Stage stage=(Stage)register_button.getScene().getWindow(); // 현재 열려있는 Stage를 얻어옴
+		for(Person p:member) //member HashSet 에서 Person 객체를 하나씩 꺼내옴
 		{
-			if(!p.getId().equals(id.getText()))
+			if(!p.getId().equals(id.getText())) // member HashSet에서 꺼내온 객체의 id와 회원가입창에서 입력한 id를 비교
 			{
-				Person person=new Person(id.getText(), pwd.getText(), name.getText());
-			//	person.print(); //지워야 하는 코드
-				member.add(person);
+				Person person=new Person(id.getText(), pwd.getText(), name.getText()); 
+				member.add(person); //중복되는 id가 없을 경우 member HashSet에 Person 객체 추가
 				stage.close();
 				alert.setTitle("회원가입 성공");
 				alert.setHeaderText("회원이 되신것을 축하합니다.");
 				alert.show();
-				person.member_info();
+				person.member_info(); // 추가된 Person 객체 정보 Console 창에 출력
 				break;
 			}
 			else
 			{
-				alert.setHeaderText("이미 있는 아이디 입니다..");
+				alert.setHeaderText("이미 있는 아이디 입니다.."); //중복되는 id가 있을 경우 경고창 출력
 				alert.show();
 				break;
 			}
@@ -61,18 +59,18 @@ public class RegisterController implements Initializable {
 		
 	}
 	
-	public void check_action(Event e)
+	public void check_action(Event e)// '중복체크 버튼' 이벤트 
 	{
-		for(Person p:member)
+		for(Person p:member)//member HashSet 에서 Person 객체를 하나씩 꺼내옴
 		{
-			if(p.getId().equals(id.getText()))
+			if(p.getId().equals(id.getText()))// member HashSet에서 꺼내온 객체의 id와 TextField에 입력한 id값 비교
 			{
-				alert.setHeaderText("이미 있는 아이디 입니다.(다시 입력해주세요)");
+				alert.setHeaderText("이미 있는 아이디 입니다.(다시 입력해주세요)");//중복되는 id가 있을 경우 경고창 출력
 				alert.show();
 				break;
 			}else
 			{
-				alert.setHeaderText("사용가능한 아이디입니다.");
+				alert.setHeaderText("사용가능한 아이디입니다.");//중복되는 id가 없을 경우 id 사용 가능 안내창 출력
 				alert.show();
 				break;
 			}

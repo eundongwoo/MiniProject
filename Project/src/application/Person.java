@@ -12,7 +12,6 @@ public class Person {
 	private String money="0";
 	
 	public Person() {
-		// TODO Auto-generated constructor stub
 	}
 	public Person(String id,String pwd)
 	{
