@@ -35,48 +35,38 @@ public class RegisterController implements Initializable {
 	public void register_action(Event e) // '회원가입 버튼' 이벤트 
 	{
 		
-		Stage stage=(Stage)register_button.getScene().getWindow(); // 현재 열려있는 Stage를 얻어옴
-		for(Person p:member) //member HashSet 에서 Person 객체를 하나씩 꺼내옴
+		Stage stage=(Stage)register_button.getScene().getWindow(); // 현재 열려있는 Stage를 얻어옴		
+		if(!member.contains(id.getText()))
 		{
-			if(!p.getId().equals(id.getText())) // member HashSet에서 꺼내온 객체의 id와 회원가입창에서 입력한 id를 비교
-			{
-				Person person=new Person(id.getText(), pwd.getText(), name.getText()); 
-				member.add(person); //중복되는 id가 없을 경우 member HashSet에 Person 객체 추가
-				stage.close();
-				alert.setTitle("회원가입 성공");
-				alert.setHeaderText("회원이 되신것을 축하합니다.");
-				alert.show();
-				break;
-			}
-			else
-			{
-				alert.setHeaderText("이미 있는 아이디 입니다.."); //중복되는 id가 있을 경우 경고창 출력
-				alert.show();
-				break;
-			}
+			Person person=new Person(id.getText(), pwd.getText(), name.getText()); 
+			member.add(person); //중복되는 id가 없을 경우 member HashSet에 Person 객체 추가
+			stage.close();
+			alert.setTitle("회원가입 성공");
+			alert.setHeaderText("회원이 되신것을 축하합니다.");
+			alert.show();
+		}else
+		{
+			alert.setHeaderText("이미 있는 아이디 입니다.."); //중복되는 id가 있을 경우 경고창 출력
+			alert.show();
 		}
 		
 	}
 	
 	public void check_action(Event e)// '중복체크 버튼' 이벤트 
 	{
-		for(Person p:member)//member HashSet 에서 Person 객체를 하나씩 꺼내옴
+		
+		if(member.contains(new Person(id.getText())))
 		{
-			if(p.getId().equals(id.getText()))// member HashSet에서 꺼내온 객체의 id와 TextField에 입력한 id값 비교
-			{
-				alert.setHeaderText("이미 있는 아이디 입니다.(다시 입력해주세요)");//중복되는 id가 있을 경우 경고창 출력
-				alert.show();
-				break;
-			}else
-			{
-				alert.setHeaderText("사용가능한 아이디입니다.");//중복되는 id가 없을 경우 id 사용 가능 안내창 출력
-				alert.show();
-				break;
-			}
+			alert.setHeaderText("이미 있는 아이디 입니다.(다시 입력해주세요)");//중복되는 id가 있을 경우 경고창 출력
+			alert.show();
+		}else
+		{
+			alert.setHeaderText("사용가능한 아이디입니다.");//중복되는 id가 없을 경우 id 사용 가능 안내창 출력
+			alert.show();
 		}
 	}
 	
-	
+	}
 	
 
-}
+

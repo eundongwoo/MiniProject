@@ -18,6 +18,11 @@ public class Person {
 		this.id = id;
 		this.pwd = pwd;
 	}
+	
+	public Person(String id)
+	{
+		this.id=id;
+	}
 
 	public Person(String id, String pwd, String name) {
 		this(id,pwd);
@@ -50,7 +55,7 @@ public class Person {
 		if(obj instanceof Person)
 		{
 			Person p=(Person)obj;  
-			return p.id.equals(id)&& p.pwd.equals(pwd);
+			return p.id.equals(id);
 		}else
 		{
 			return false;  
