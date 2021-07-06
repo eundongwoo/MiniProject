@@ -78,6 +78,9 @@ public class payController implements Initializable{
 					stage.close();// 현재 창 닫음
 					
 					main_page_load();// "orderSys.fxml" 창을 띄운 뒤 로그아웃 기능 구현
+					Alert alert=new Alert(AlertType.INFORMATION);
+					alert.setHeaderText("결제가 완료되었습니다.");
+					alert.show();
 				}
 			}
 			
