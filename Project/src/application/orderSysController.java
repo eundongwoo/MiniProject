@@ -160,15 +160,15 @@ public class orderSysController implements Initializable{
 			Stage stage=new Stage(); 
 			stage.setTitle("잔액충전");
 			stage.setScene(new Scene(root));
-			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {// "orderSys.fxml"창이 닫힐 때 이벤트 추가
+			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {// "ChargeMoney.fxml"창이 닫힐 때 이벤트 추가
 				
 				@Override
 				public void handle(WindowEvent event) {
-					Alert alert=new Alert(AlertType.WARNING);// 새로운 CONFIRMATION 타입 알림창 생성
+					Alert alert=new Alert(AlertType.WARNING);// 새로운 WARNING 타입 알림창 생성
 					alert.setTitle("경고!!");
 					alert.setHeaderText("멈춰!!");
 					alert.setContentText("충전을 완료해주세요!!");
-					Optional<ButtonType> result= alert.showAndWait();// 알림창을 띄운 뒤, 사용자의 선택을 기다림
+					Optional<ButtonType> result= alert.showAndWait();// 잔액 충전을 완료하지 않고 닫기 버튼을 눌렀을 때 경고창 출력
 					
 					if(result.get()==ButtonType.OK)// OK 버튼을 눌렀을 때
 					{
